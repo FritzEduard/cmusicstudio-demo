@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMusicStudio — Répétition &amp; Enregistrement</title>
+  <meta name="description" content="Studio de répétition et d'enregistrement. Réservez votre créneau en ligne.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="logo" href="#top">C<span>Music</span>Studio</a>
+    <nav class="nav">
+      <a href="#highlights" data-i18n="nav_studio">Le studio</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="top-actions">
+      <button class="lang" id="lang" type="button" aria-label="Language">EN</button>
+      <a class="btn btn-small" href="#reserve" data-i18n="cta_reserve">Réserver</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow" data-i18n="hero_eyebrow">Studio de répétition et d'enregistrement · Sénégal</p>
+        <h1 data-i18n="hero_title">Votre son mérite une vraie salle.</h1>
+        <p class="lead" data-i18n="hero_lead">Répétez avec votre groupe ou enregistrez votre projet avec un ingénieur du son. Réservez en ligne en moins d'une minute.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#reserve" data-i18n="cta_reserve_now">Réserver un créneau</a>
+          <a class="btn btn-ghost" href="#highlights" data-i18n="cta_discover">Découvrir le studio</a>
+        </div>
+      </div>
+      <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <section id="highlights" class="section">
+      <h2 data-i18n="hl_title">Le studio en un coup d'œil</h2>
+      <p class="sub" data-i18n="hl_sub">Photos et textes à remplacer par ceux du studio.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="ph" data-i18n="ph_photo">Photo à venir</div>
+          <h3 data-i18n="hl1_t">Salle de répétition</h3>
+          <p data-i18n="hl1_d">Salle insonorisée, batterie, amplis guitare et basse, sono et micros. Idéale pour un groupe de 3 à 6 musiciens.</p>
+        </article>
+        <article class="card">
+          <div class="ph" data-i18n="ph_photo">Photo à venir</div>
+          <h3 data-i18n="hl2_t">Cabine d'enregistrement</h3>
+          <p data-i18n="hl2_d">Régie, cabine voix et prise d'instruments, avec un ingénieur du son pour enregistrer, mixer et masteriser.</p>
+        </article>
+        <article class="card">
+          <div class="ph" data-i18n="ph_photo">Photo à venir</div>
+          <h3 data-i18n="hl3_t">Matériel pro</h3>
+          <p data-i18n="hl3_d">Interfaces audio, micros à condensateur, monitoring de référence. Liste du matériel à compléter.</p>
+        </article>
+      </div>
+      <div class="rates">
+        <div><strong id="rate-rehearsal"></strong><span data-i18n="rate_rehearsal">Répétition, par heure</span></div>
+        <div><strong id="rate-recording"></strong><span data-i18n="rate_recording">Enregistrement avec ingénieur, par heure</span></div>
+      </div>
+    </section>
+
+    <section id="reserve" class="section reserve">
+      <h2 data-i18n="rv_title">Réserver un créneau</h2>
+      <p class="sub" data-i18n="rv_sub">Choisissez le service, le jour et l'heure. Vous recevrez une confirmation après validation par le studio.</p>
+
+      <div class="rv-grid">
+        <form id="form" class="rv-form" novalidate>
+          <fieldset>
+            <legend><b>1</b> <span data-i18n="rv_step1">Service</span></legend>
+            <div class="seg" id="service">
+              <label><input type="radio" name="service" value="rehearsal" checked><span data-i18n="svc_rehearsal">Répétition</span></label>
+              <label><input type="radio" name="service" value="recording"><span data-i18n="svc_recording">Enregistrement</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><b>2</b> <span data-i18n="rv_step2">Date</span></legend>
+            <div class="cal">
+              <div class="cal-head">
+                <button type="button" id="prev" aria-label="Mois précédent">‹</button>
+                <strong id="month"></strong>
+                <button type="button" id="next" aria-label="Mois suivant">›</button>
+              </div>
+              <div class="cal-dow" id="dow"></div>
+              <div class="cal-days" id="days"></div>
+              <p class="legend"><i class="dot free"></i><span data-i18n="lg_free">Disponible</span> <i class="dot some"></i><span data-i18n="lg_some">Presque complet</span> <i class="dot full"></i><span data-i18n="lg_full">Complet</span></p>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><b>3</b> <span data-i18n="rv_step3">Heure et durée</span></legend>
+            <p class="hint" id="pick-day" data-i18n="pick_day">Choisissez d'abord un jour.</p>
+            <div class="slots" id="slots"></div>
+            <label class="field"><span data-i18n="dur">Durée</span>
+              <select id="duration"></select>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend><b>4</b> <span data-i18n="rv_step4">Vos informations</span></legend>
+            <label class="field"><span data-i18n="f_name">Nom ou nom du groupe</span><input id="name" autocomplete="name" required></label>
+            <label class="field"><span data-i18n="f_phone">Téléphone (WhatsApp)</span><input id="phone" type="tel" autocomplete="tel" placeholder="+221 77 000 00 00" required></label>
+            <label class="field"><span data-i18n="f_email">E-mail (facultatif)</span><input id="email" type="email" autocomplete="email"></label>
+            <label class="field"><span data-i18n="f_note">Message (facultatif)</span><textarea id="note" rows="2"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend><b>5</b> <span data-i18n="rv_step5">Paiement</span></legend>
+            <div class="pay" id="pay">
+              <label><input type="radio" name="pay" value="wave" checked><span class="chip wave">Wave</span></label>
+              <label><input type="radio" name="pay" value="om"><span class="chip om">Orange Money</span></label>
+              <label><input type="radio" name="pay" value="card"><span class="chip" data-i18n="pay_card">Carte bancaire</span></label>
+              <label><input type="radio" name="pay" value="onsite"><span class="chip" data-i18n="pay_onsite">Sur place</span></label>
+            </div>
+            <p class="hint" id="pay-hint"></p>
+          </fieldset>
+
+          <p class="error" id="error" role="alert" hidden></p>
+          <button class="btn btn-block" type="submit" data-i18n="cta_send">Envoyer ma demande</button>
+        </form>
+
+        <aside class="summary" id="summary" aria-live="polite">
+          <h3 data-i18n="sum_title">Récapitulatif</h3>
+          <dl>
+            <dt data-i18n="sum_service">Service</dt><dd id="s-service">—</dd>
+            <dt data-i18n="sum_when">Quand</dt><dd id="s-when">—</dd>
+            <dt data-i18n="sum_total">Total</dt><dd id="s-total">—</dd>
+            <dt data-i18n="sum_deposit">Acompte (30 %)</dt><dd id="s-deposit">—</dd>
+          </dl>
+        </aside>
+      </div>
+
+      <div id="done" class="done" hidden>
+        <h3 data-i18n="done_title">Demande envoyée ✔</h3>
+        <p id="done-text"></p>
+        <details>
+          <summary data-i18n="done_mail">E-mail envoyé au propriétaire (aperçu du prototype)</summary>
+          <pre id="done-mail"></pre>
+        </details>
+        <button class="btn btn-ghost" id="again" type="button" data-i18n="done_again">Faire une autre réservation</button>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 data-i18n="ct_title">Contact</h2>
+      <p class="sub" data-i18n="ct_sub">Coordonnées à remplacer.</p>
+      <ul class="contact">
+        <li>📍 <span data-i18n="ct_addr">Adresse du studio, Dakar, Sénégal</span></li>
+        <li>📞 <a href="tel:+221770000000">+221 77 000 00 00</a></li>
+        <li>💬 <a href="https://wa.me/221770000000">WhatsApp</a></li>
+        <li>✉️ <a href="mailto:contact@cmusicstudio.example">contact@cmusicstudio.example</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="foot">© <span id="year"></span> CMusicStudio · <span data-i18n="foot_proto">Prototype</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
