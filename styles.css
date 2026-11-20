@@ -38,6 +38,9 @@ h1,h2,h3{line-height:1.15;margin:0 0 .4em}
 .cards{display:grid;gap:16px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
 .ph{aspect-ratio:16/9;display:grid;place-items:center;border-radius:10px;margin-bottom:12px;color:var(--muted);font-size:.9rem;background:repeating-linear-gradient(45deg,#e6f0fc,#e6f0fc 12px,#dbe9fa 12px,#dbe9fa 24px)}
+.ph{overflow:hidden;position:relative}
+.ph img,.ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ph img{object-position:50% 62%}.ph img.gear{object-position:80% 70%;transform:scale(1.6);transform-origin:80% 70%}
 .card p{color:var(--muted);margin:0}
 .rates{display:grid;gap:12px;margin-top:20px}
 .rates div{background:var(--panel2);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column}
@@ -49,7 +52,7 @@ h1,h2,h3{line-height:1.15;margin:0 0 .4em}
 legend{padding:0 8px;font-weight:700}
 legend b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:.8rem;margin-right:6px}
 .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.seg label,.pay label{cursor:pointer}
+.seg label,.pay label{cursor:pointer;position:relative}
 .seg input,.pay input{position:absolute;opacity:0;pointer-events:none}
 .seg span{display:block;text-align:center;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);font-weight:600}
 .seg input:checked+span{border-color:var(--accent);background:#dcedff;color:var(--navy)}

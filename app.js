@@ -305,3 +305,12 @@
 
   applyText();
 })();
+
+/* Play the studio video only while it is on screen (saves data on mobile). */
+(function () {
+  var v = document.querySelector('.ph video');
+  if (!v || !('IntersectionObserver' in window)) { return; }
+  new IntersectionObserver(function (e) {
+    if (e[0].isIntersecting) { v.play().catch(function () {}); } else { v.pause(); }
+  }, { threshold: 0.4 }).observe(v);
+})();
